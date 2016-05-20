@@ -1,0 +1,34 @@
+@namespace(
+	uri="http://examples/questions",
+	prefix="questions")
+package questions;
+
+class QuestionSet {
+	attr String[1] name;
+	val Question[*] questions;
+}
+
+abstract class Question {
+	attr String[1] name;
+	attr String[1] text;
+}
+
+@"http://http://www.eclipse.org/emf/2002/Ecore/OCL"(onlyOneAnswer="self.answers->select(a | a.isCorrect)->size() = 1")
+class SingleChoice extends Question {
+	val Answer[*] answers;		
+}
+
+@"http://http://www.eclipse.org/emf/2002/Ecore/OCL"(atLeastOneAnswer="self.answers->any(a | a.isCorrect)")
+class MultipleChoice extends Question {
+	val Answer[*] answers;	
+}
+
+class IntValueQuestion extends Question {
+	attr int[1] expectedValue;
+}
+
+class Answer {
+	attr String[1] text;
+	attr boolean[0..1] isCorrect = false;
+}
+
