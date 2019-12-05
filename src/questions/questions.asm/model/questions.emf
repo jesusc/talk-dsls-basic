@@ -15,12 +15,12 @@ abstract class Question {
 
 @"http://http://www.eclipse.org/emf/2002/Ecore/OCL"(onlyOneAnswer="self.answers->select(a | a.isCorrect)->size() = 1")
 class SingleChoice extends Question {
-	val Answer[*] answers;		
+	val Answer[2..*] answers;		
 }
 
 @"http://http://www.eclipse.org/emf/2002/Ecore/OCL"(atLeastOneAnswer="self.answers->any(a | a.isCorrect)")
 class MultipleChoice extends Question {
-	val Answer[*] answers;	
+	val Answer[2..*] answers;	
 }
 
 class IntValueQuestion extends Question {

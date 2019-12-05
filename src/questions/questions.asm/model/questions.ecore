@@ -14,15 +14,15 @@
     <eAnnotations source="http://http://www.eclipse.org/emf/2002/Ecore/OCL">
       <details key="onlyOneAnswer" value="self.answers->select(a | a.isCorrect)->size() = 1"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="answers" upperBound="-1"
-        eType="#//Answer" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="answers" lowerBound="2"
+        upperBound="-1" eType="#//Answer" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MultipleChoice" eSuperTypes="#//Question">
     <eAnnotations source="http://http://www.eclipse.org/emf/2002/Ecore/OCL">
       <details key="atLeastOneAnswer" value="self.answers->any(a | a.isCorrect)"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="answers" upperBound="-1"
-        eType="#//Answer" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="answers" lowerBound="2"
+        upperBound="-1" eType="#//Answer" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntValueQuestion" eSuperTypes="#//Question">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expectedValue" lowerBound="1"
